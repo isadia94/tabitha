@@ -39,7 +39,7 @@ function Hero() {
           objectPosition="center"
         />
       </div>
-      <div className="absolute top-0 h-screen w-screen xl:w-[50%] xl:right-0 bg-green-800 opacity-[0.6] xl:opacity-[0.2]" />
+      <div className="absolute top-0 h-screen w-screen xl:w-[50%] xl:hidden bg-green-800 opacity-[0.6] xl:opacity-[0.2]" />
       <div
         ref={innerRef}
         className="absolute top-0 h-screen z-40 flex flex-col justify-center pl-6 "
