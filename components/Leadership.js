@@ -1,8 +1,10 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap, Power3, Back } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import SplitType from "split-type";
 function Leadership() {
+  gsap.registerPlugin(ScrollTrigger);
   const h1 = useRef();
   const h2 = useRef();
   const rev1 = useRef();
@@ -12,45 +14,70 @@ function Leadership() {
   useEffect(() => {
     const letters = new SplitType(h1.current).chars;
     const letters2 = new SplitType(h2.current).chars;
-    const Antony = rev1.current;
-    console.log(Antony);
-    const Mourine = rev2.current;
-    tl.from(".leadershipImage", {
+
+    gsap.from(".leadershipImage", {
+      scrollTrigger: {
+        trigger: ".leadershipImage",
+      },
       opacity: 0,
       y: 90,
       duration: 1,
       ease: Power3.easeInOut,
     });
-    tl.from(".leadershipTitle", {
+    gsap.from(".leadershipTitle", {
+      scrollTrigger: {
+        trigger: ".leadershipTitle",
+        start: "top center",
+      },
       x: "-100vw",
-      duration: 0.7,
+      duration: 1,
+    });
+    gsap.from(".underline", {
+      scrollTrigger: {
+        trigger: ".underline",
+        start: "top center",
+      },
+      opacity: 0,
+      x: 50,
+      duration: 0.9,
     });
 
-    tl.from(letters, {
+    gsap.from(letters, {
+      scrollTrigger: {
+        trigger: letters,
+        start: "top center",
+      },
       opacity: 0,
       y: 10,
-
       duration: 0.3,
       stagger: 0.1,
       scale: 1.6,
       ease: Back.easeInOut,
     });
 
-    tl.from(letters2, {
+    gsap.from(letters2, {
+      scrollTrigger: {
+        trigger: letters,
+        start: "top center",
+      },
       opacity: 0,
       y: 10,
-
       duration: 0.3,
       stagger: 0.1,
       scale: 1.6,
       ease: Power3.easeInOut,
     });
 
-    tl.from(".leadershipPara", {
+    gsap.from(".leadershipPara", {
+      scrollTrigger: {
+        trigger: letters2,
+        start: "top center",
+      },
       opacity: 0,
       y: 10,
       duration: 0.8,
       ease: Power3.easeIn,
+      delay: 0.7,
     });
   }, []);
   return (
@@ -71,7 +98,7 @@ function Leadership() {
         >
           Our Leadership
         </h3>
-        <div className="h-[2px] w-[60px] bg-green-800" />
+        <div className="underline h-[2px] w-[60px] bg-green-800" />
         <div className="  mt-5">
           <div className="leadership__title">
             <h1

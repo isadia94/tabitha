@@ -1,19 +1,29 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap, Power3 } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import SplitType from "split-type";
+
 function About() {
+  gsap.registerPlugin(ScrollTrigger);
   const h1 = useRef();
   let tl = gsap.timeline();
+
   useEffect(() => {
     const letters = new SplitType(h1.current).chars;
 
-    tl.from(".aboutTitle", {
+    gsap.from(".aboutTitle", {
+      scrollTrigger: {
+        trigger: ".aboutTitle",
+      },
       x: -100,
       duration: 0.7,
     });
 
-    tl.from(letters, {
+    gsap.from(letters, {
+      scrollTrigger: {
+        trigger: letters,
+      },
       opacity: 0,
       y: 10,
 
@@ -21,14 +31,26 @@ function About() {
       stagger: 0.2,
       scale: 1.6,
       ease: Power3.easeInOut,
+      delay: 1,
     });
 
-    tl.from(".aboutPara", { opacity: 0, ease: Power3.easeIn });
-    tl.from(".aboutImage", {
+    gsap.from(".aboutPara", {
+      scrollTrigger: {
+        trigger: ".aboutPara",
+      },
+      opacity: 0,
+      ease: Power3.easeIn,
+      delay: 3,
+    });
+    gsap.from(".aboutImage", {
+      scrollTrigger: {
+        trigger: ".aboutPara",
+      },
       opacity: 0,
       y: 90,
       duration: 0.7,
       ease: Power3.easeInOut,
+      delay: 3.5,
     });
   }, []);
   return (

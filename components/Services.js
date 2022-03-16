@@ -3,7 +3,7 @@ import { gsap, Power3 } from "gsap";
 import SplitType from "split-type";
 import { ArrowNarrowDownIcon, ArrowNarrowUpIcon } from "@heroicons/react/solid";
 import Image from "next/image";
-
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 const services = [
   {
     title: "Economic Empowerment",
@@ -74,17 +74,25 @@ const services = [
 ];
 
 function Services() {
+  gsap.registerPlugin(ScrollTrigger);
   const h1 = useRef();
   let tl = gsap.timeline();
   useEffect(() => {
     const letters = new SplitType(h1.current).chars;
 
-    tl.from(".servicesTitle", {
+    gsap.from(".servicesTitle", {
+      scrollTrigger: {
+        trigger: ".servicesTitle",
+      },
       x: -100,
       duration: 0.7,
     });
 
-    tl.from(letters, {
+    gsap.from(letters, {
+      scrollTrigger: {
+        trigger: ".servicesTitle",
+        start: "top center",
+      },
       opacity: 0,
       y: 10,
 
@@ -92,18 +100,19 @@ function Services() {
       stagger: 0.2,
       scale: 1.6,
       ease: Power3.easeInOut,
+      // delay: 1,
     });
 
-    tl.from(
-      ".servicesSlider",
-      {
-        opacity: 0,
-        y: 90,
-        duration: 0.7,
-        ease: Power3.easeInOut,
+    gsap.from(".servicesSlider", {
+      scrollTrigger: {
+        trigger: ".servicesSlider",
+        start: "top center",
       },
-      "2.8"
-    );
+      opacity: 0,
+      y: 90,
+      duration: 0.7,
+      ease: Power3.easeInOut,
+    });
   }, []);
   let sideBarRef = useRef(null);
   let mainSlideRef = useRef(null);
