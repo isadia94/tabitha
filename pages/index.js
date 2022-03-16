@@ -10,6 +10,7 @@ export default function Home() {
     <div>
       <Head>
         <title>Tabitha Alms Organization</title>
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* Component to Landing Page */}
