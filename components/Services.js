@@ -1,6 +1,9 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
+import { gsap, Power3 } from "gsap";
+import SplitType from "split-type";
 import { ArrowNarrowDownIcon, ArrowNarrowUpIcon } from "@heroicons/react/solid";
 import Image from "next/image";
+
 const services = [
   {
     title: "Economic Empowerment",
@@ -71,6 +74,37 @@ const services = [
 ];
 
 function Services() {
+  const h1 = useRef();
+  let tl = gsap.timeline();
+  useEffect(() => {
+    const letters = new SplitType(h1.current).chars;
+
+    tl.from(".servicesTitle", {
+      x: -100,
+      duration: 0.7,
+    });
+
+    tl.from(letters, {
+      opacity: 0,
+      y: 10,
+
+      duration: 0.6,
+      stagger: 0.2,
+      scale: 1.6,
+      ease: Power3.easeInOut,
+    });
+
+    tl.from(
+      ".servicesSlider",
+      {
+        opacity: 0,
+        y: 90,
+        duration: 0.7,
+        ease: Power3.easeInOut,
+      },
+      "2.8"
+    );
+  }, []);
   let sideBarRef = useRef(null);
   let mainSlideRef = useRef(null);
   let containerRef = useRef(null);
@@ -117,18 +151,21 @@ function Services() {
         className="xl:w-[50%]  xl:pt-0  "
       >
         <div>
-          <h4 className="font-Coto text-2xl">Services</h4>
+          <h4 className="servicesTitle font-Coto text-2xl">Services</h4>
           <div className="h-[2px] w-[60px] bg-green-800" />
         </div>
         <div>
           <div className="mt-6 flex">
-            <h1 className="Poppins text-5xl sm:text-5xl md:text-6xl xl:text-8xl font-extrabold">
+            <h1
+              ref={h1}
+              className="Poppins text-5xl sm:text-5xl md:text-6xl xl:text-8xl font-extrabold"
+            >
               WHAT WE <br /> DO ?
             </h1>
           </div>
         </div>
       </div>
-      <div className="h-[300px]  mt-16 ">
+      <div className="h-[300px] servicesSlider  mt-16 ">
         <div className="container mx-auto xl:h-[450px] " ref={containerRef}>
           <div className="sidebar" ref={sideBarRef}>
             <div className="sidebar_1 relative">

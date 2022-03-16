@@ -1,9 +1,61 @@
+import { useEffect, useRef } from "react";
 import Image from "next/image";
-
+import { gsap, Power3, Back } from "gsap";
+import SplitType from "split-type";
 function Leadership() {
+  const h1 = useRef();
+  const h2 = useRef();
+  const rev1 = useRef();
+  const rev2 = useRef();
+  let tl = gsap.timeline();
+
+  useEffect(() => {
+    const letters = new SplitType(h1.current).chars;
+    const letters2 = new SplitType(h2.current).chars;
+    const Antony = rev1.current;
+    console.log(Antony);
+    const Mourine = rev2.current;
+    tl.from(".leadershipImage", {
+      opacity: 0,
+      y: 90,
+      duration: 1,
+      ease: Power3.easeInOut,
+    });
+    tl.from(".leadershipTitle", {
+      x: "-100vw",
+      duration: 0.7,
+    });
+
+    tl.from(letters, {
+      opacity: 0,
+      y: 10,
+
+      duration: 0.3,
+      stagger: 0.1,
+      scale: 1.6,
+      ease: Back.easeInOut,
+    });
+
+    tl.from(letters2, {
+      opacity: 0,
+      y: 10,
+
+      duration: 0.3,
+      stagger: 0.1,
+      scale: 1.6,
+      ease: Power3.easeInOut,
+    });
+
+    tl.from(".leadershipPara", {
+      opacity: 0,
+      y: 10,
+      duration: 0.8,
+      ease: Power3.easeIn,
+    });
+  }, []);
   return (
     <div className="xl:relative mb-16 rounded-lg -mt-[100px] xl:mt-[50px] ">
-      <div className="relative rounded-lg  h-80 xl:h-[600px] shadow-2xl">
+      <div className="leadershipImage relative rounded-lg  h-80 xl:h-[600px] shadow-2xl">
         <Image
           src="/assets/leader.png"
           objectFit="contain"
@@ -13,22 +65,39 @@ function Leadership() {
         />
       </div>
       <div className="xl:absolute xl:top-12 pl-6 pr-5">
-        <h3 className="mt-10  text-2xl font-light font-Coto" id="heading">
+        <h3
+          className="leadershipTitle mt-10  text-2xl font-light font-Coto"
+          id="heading"
+        >
           Our Leadership
         </h3>
         <div className="h-[2px] w-[60px] bg-green-800" />
         <div className="  mt-5">
           <div className="leadership__title">
-            <h2 className="text-5xl xl:text-7xl font-extrabold font-Poppins leader">
-              Rev. <span className="text-yellow-400">Anthony</span> +{" "}
-            </h2>
-            <h2 className="text-5xl xl:text-7xl font-extrabold font-Poppins leader2">
-              Rev. <span className="text-yellow-400">Mourine</span> <br />
+            <h1
+              ref={h1}
+              className="text-5xl xl:text-7xl font-extrabold font-Poppins leader"
+            >
+              Rev.
+              <span className="rev1" ref={rev1}>
+                Anthony
+              </span>{" "}
+              +
+            </h1>
+            <h1
+              ref={h2}
+              className="text-5xl xl:text-7xl font-extrabold font-Poppins leader2"
+            >
+              Rev.{" "}
+              <span ref={rev2} className="text-yellow-400">
+                Mourine
+              </span>{" "}
+              <br />
               Musembi
-            </h2>
+            </h1>
           </div>
 
-          <p className="mt-6 text-[13px] leading-relaxed max-w-[450px]  font-Poppins text-green-800">
+          <p className="leadershipPara mt-6 text-[13px] leading-relaxed max-w-[450px]  font-Poppins text-green-800">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisl risus,
             tristique risus ut in nulla pretium massa. In pretium, venenatis
             rutrum lectus ullamcorper sodales pellentesque. Convallis ultricies

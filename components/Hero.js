@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 import Image from "next/image";
-import { gsap } from "gsap";
+import { gsap, Power3 } from "gsap";
 
 function Hero() {
   const innerRef = useRef();
@@ -9,20 +9,15 @@ function Hero() {
   const q = gsap.utils.selector(innerRef);
 
   useEffect(() => {
-    gsap.from(q(".child"), {
-      y: "40px",
-      opacity: 0,
-      stagger: 1,
-      duration: 0.8,
-      ease: "easeInOut",
-      delay: 1.5,
-    });
+    let tl = gsap.timeline();
 
-    gsap.from(imageRef.current, {
-      opacity: 0,
-      duration: 0.4,
-
-      ease: "easeInOut",
+    tl.from(".child", {
+      duration: 0.7,
+      y: 150,
+      autoAlpha: 0,
+      delay: 1,
+      ease: Power3.out,
+      stagger: 0.6,
     });
   }, []);
 

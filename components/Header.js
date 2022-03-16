@@ -1,7 +1,12 @@
-import React from "react";
+import { useEffect } from "react";
 import { MenuAlt3Icon } from "@heroicons/react/solid";
 import Image from "next/image";
+import { Power3, gsap } from "gsap";
+
 function Header() {
+  useEffect(() => {
+    gsap.from(".fixed", { duration: 0.7, y: -100, ease: Power3.out });
+  }, []);
   return (
     <div
       className="fixed top-0 left-0 z-50 pl-6 pr-5 flex justify-between items-center w-full
