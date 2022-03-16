@@ -4,6 +4,7 @@ import Services from "../components/Services";
 import Leadership from "../components/Leadership";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
+import Header from "../components/Header";
 
 export default function Home() {
   return (
@@ -12,6 +13,8 @@ export default function Home() {
         <title>Tabitha Alms Organization</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <Header />
 
       {/* Component to Landing Page */}
       <Hero />
