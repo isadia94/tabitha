@@ -81,7 +81,7 @@ function Leadership() {
     });
   }, []);
   return (
-    <div className="xl:relative mb-16 rounded-lg -mt-[100px] xl:mt-[50px] ">
+    <div className="xl:relative mb-16 rounded-lg -mt-[100px] xl:mt-[10px] ">
       <div className="leadershipImage relative rounded-lg  h-80 xl:h-[600px] shadow-2xl">
         <Image
           src="/assets/leader.png"

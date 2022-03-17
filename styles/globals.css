@@ -46,6 +46,14 @@ a {
   color: black;
 }
 
+.introText {
+  opacity: 0;
+}
+
+.introPara {
+  opacity: 0;
+}
+
 .sidebar h1 {
   font-size: 40px;
   margin-bottom: 10px;

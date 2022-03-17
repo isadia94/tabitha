@@ -6,18 +6,43 @@ function Hero() {
   const innerRef = useRef();
   const imageRef = useRef();
 
-  const q = gsap.utils.selector(innerRef);
+  // const q = gsap.utils.selector(innerRef);
 
   useEffect(() => {
-    let tl = gsap.timeline();
+    gsap.fromTo(
+      ".introPara",
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        duration: 0.9,
+        y: 0,
 
-    tl.from(".child", {
-      duration: 0.7,
-      y: 150,
-      autoAlpha: 0,
+        ease: Power3.out,
+      }
+    );
+  }, []);
+
+  useEffect(() => {
+    gsap.fromTo(
+      ".introText",
+      {
+        y: 150,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        delay: 0.6,
+        ease: Power3.out,
+      }
+    );
+  }, []);
+  useEffect(() => {
+    gsap.from(".linkTo", {
+      opacity: 0,
+
+      duration: 1,
       delay: 1,
-      ease: Power3.out,
-      stagger: 0.6,
     });
   }, []);
 
@@ -34,20 +59,20 @@ function Hero() {
           objectPosition="center"
         />
       </div>
-      <div className="absolute top-0 h-screen w-screen xl:w-[50%] xl:hidden bg-green-800 opacity-[0.6] xl:opacity-[0.2]" />
+      <div className="absolute top-0 right-0 h-screen w-screen xl:w-[50%] bg-green-800 opacity-[0.6] xl:opacity-[0.3]" />
       <div
         ref={innerRef}
-        className="absolute top-0 h-screen z-40 flex flex-col justify-center pl-6 "
+        className="absolute top-0 h-screen z-40 flex flex-col justify-center pl-6  "
       >
-        <p className="child font-Poppins text-xs font-bold text-white xl:text-green-800 lg:text-[14px] mb-4">
+        <p className="introPara font-Poppins text-xs font-bold text-white xl:text-green-800 lg:text-[14px] mb-4">
           COMING TOGETHER TO
         </p>
-        <h1 className="child font-Magenda font-extrabold text-[40px] md:text-6xl xl:text-7xl max-w-[550px] text-white xl:text-black">
+        <h1 className="introText font-Magenda font-extrabold text-[40px] md:text-6xl xl:text-7xl max-w-[550px] text-white xl:text-black">
           <span className="text-yellow-400 shadow-md">Empower</span> People,
           Help the Needy & Transform{" "}
           <span className="text-yellow-400 shadow-md">Lives</span>
         </h1>
-        <div className="child relative mt-6 text-white">
+        <div className="linkTo relative mt-6 text-white">
           <p className="absolute left-9 text-xs font-Poppins font-medium">
             Learn More
           </p>
