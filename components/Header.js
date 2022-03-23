@@ -65,7 +65,7 @@ function Header({ isActive, setIsActive }) {
           <Link href="/">
             <a>HOME</a>
           </Link>
-          <Link href="/">
+          <Link href="about">
             <a>ABOUT</a>
           </Link>
           <Link href="/">
