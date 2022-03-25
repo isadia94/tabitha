@@ -57,9 +57,7 @@ function Header({ isActive, setIsActive }) {
           onClick={() => setIsActive(!isActive)}
           className="xl:hidden cursor-pointer"
         >
-          <MenuAlt3Icon
-            className={isActive ? "h-8 text-black" : "h-8 text-white"}
-          />
+          <MenuAlt3Icon className="h-8 text-black" />
         </div>
         <div className="hidden xl:flex text-[12px] font-semibold space-x-12">
           <Link href="/">
