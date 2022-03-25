@@ -66,17 +66,17 @@ export default function Home() {
                   <Link href="/">
                     <a className="navLink">HOME</a>
                   </Link>
-                  <Link href="/">
+                  <Link href="/about">
                     <a className="navLink">ABOUT</a>
                   </Link>
                   <Link href="/">
                     <a className="navLink">SERVICES</a>
                   </Link>
-                  <Link href="/">
+                  <Link href="/team">
                     <a className="navLink">TEAM</a>
                   </Link>
 
-                  <Link href="/">
+                  <Link href="/contact">
                     <a className="navLink">CONTACT</a>
                   </Link>
                 </div>
