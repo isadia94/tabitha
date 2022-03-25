@@ -10,23 +10,6 @@ function Header({ isActive, setIsActive }) {
   useEffect(() => {
     gsap.from(".fixed", { duration: 0.7, y: -100, ease: Power3.out });
   }, [isActive]);
-  useEffect(() => {
-    gsap.fromTo(
-      ".header",
-      {
-        color: "white",
-      },
-      {
-        color: "black",
-        ease: "Expo.easeOut",
-        duration: 2,
-        scrollTrigger: {
-          trigger: ".servicesTitle",
-          start: "top +=100px",
-        },
-      }
-    );
-  });
 
   return (
     <div
