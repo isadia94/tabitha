@@ -17,10 +17,10 @@ function Footer() {
             LINKS
           </h4>
           <div className="mt-2 flex flex-col space-y-2 text-sm">
-            <Link href="/">
+            <Link href="/about">
               <a className="cursor-pointer font-Poppins font-light">US</a>
             </Link>
-            <Link href="/">
+            <Link href="/services">
               <a className="cursor-pointer font-Poppins font-light">
                 WHAT WE DO
               </a>
@@ -28,7 +28,7 @@ function Footer() {
             <Link href="/">
               <a className="cursor-pointer font-Poppins font-light">PROJECTS</a>
             </Link>
-            <Link href="/">
+            <Link href="/team">
               <a className="cursor-pointer font-Poppins font-light">
                 OUR LEADERSHIP
               </a>

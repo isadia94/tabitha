@@ -88,7 +88,10 @@ export default function Home() {
               <Hero />
               <About />
               <Services />
-              <Leadership />
+              <div className="md:mt-[180px]">
+                <Leadership />
+              </div>
+
               <Footer />
             </div>
           )}

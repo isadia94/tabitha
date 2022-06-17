@@ -118,7 +118,7 @@ function Leadership() {
             >
               Rev.{" "}
               <span ref={rev2} className="text-yellow-400">
-                Mourine
+                Maureen
               </span>{" "}
               <br />
               Musembi
@@ -126,12 +126,13 @@ function Leadership() {
           </div>
 
           <p className="leadershipPara mt-6 text-[13px] leading-relaxed max-w-[450px]  font-Poppins text-green-800">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisl risus,
-            tristique risus ut in nulla pretium massa. In pretium, venenatis
-            rutrum lectus ullamcorper sodales pellentesque. Convallis ultricies
-            amet massa, neque varius amet, vestibulum in. Lacus cursus morbi et
-            eget. Vel fermentum mattis enim aliquet. Lacinia scelerisque sit
-            quam elit.
+            Pastor Anthony and Maureen are founding members of Tabitha Alms
+            Organization, a project by JCC Nakuru and serve with the church as
+            senior pastors. Passionate about God's Word and His people, they are
+            dynamic, humorous and anointed ministers who travels to minister to
+            pastors worldwide. They are also a remarkable leaders whose desire
+            is to see people empowered and transformed by God’s word to live
+            victorious lives
           </p>
           <Link href="/team">
             <div className="relative mt-6 cursor-pointer">
